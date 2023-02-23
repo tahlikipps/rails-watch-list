@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h2><%= @list.name %></h2>
+
+
+<ul class="list-group">
+  <% @list.movies.each do |movie| %>
+    <li class="list-group-item"><%= movie.title %><%= movie.overview %><br><%= movie.rating %><%= movie.post_url %>
+  </li>
+  <% end %>
+</ul>
+<br>
+  <div class="container">
+      <%= render "/bookmarks/new" %>
+  </div>
+<br>
+  <button type="button" class="btn btn-light"><%= link_to "Back to all lists", lists_path %>
+<br>
+
+</div>
