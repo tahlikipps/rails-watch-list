@@ -10,7 +10,7 @@
 <div class="container">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://thumbnails.production.thenounproject.com/f9qfUYK4piml1TTJmMQ88PAiu5E=/fit-in/1000x1000/photos.production.thenounproject.com/photos/73741A7E-4978-4B22-A488-B00F05D8D568.jpg)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
         <%= link_to list.name, list_path(list) %>
       </div>
     <% end %>

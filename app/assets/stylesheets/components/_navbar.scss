@@ -10,3 +10,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon h3 {
+  transition: .5s;
+}
+
+.navbar-lewagon h3:hover {
+  text-shadow: 0 0 5px #ff9310;
+}
