@@ -1,20 +1,36 @@
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
+  <div class="container">
+  <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+
 <div class="container">
+  <div class="cards">
+    <div class="card-movie">
+    <% @list.movies.each do |movie| %>
+      <div class="card-movie-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= movie.poster_url %>')">
+      </div>
+      <div class="card-movie-content">
+        <p><strong><%= movie.title %></strong></p>
+        <p><%= movie.overview %></p>
+        <p>Rating: <%= movie.rating %></p>
+      </div>
+    <% end %>
+      <div class="card-movie-comment">
 
-  <h2><%= @list.name %></h2>
-
-
-<ul class="list-group">
-  <% @list.movies.each do |movie| %>
-    <li class="list-group-item"><%= movie.title %><%= movie.overview %><br><%= movie.rating %><%= movie.post_url %>
-  </li>
-  <% end %>
-</ul>
+        <% @list.bookmarks.each do |bookmark| %>
+          <p><span><strong>Bookmark note: </strong><%= bookmark.comment %></span></p>
+          <% end %>
+      </div>
+   </div>
+  </div>
 <br>
   <div class="container">
       <%= render "/bookmarks/new" %>
   </div>
 <br>
-  <button type="button" class="btn btn-light"><%= link_to "Back to all lists", lists_path %>
-<br>
-
-</div>
+  <div class="container">
+    <button type="button" class="btn btn-light"><%= link_to "Back to all lists", lists_path %>
+  </div>
